@@ -1,4 +1,4 @@
-  // Tab switching functionality
+     // Tab switching functionality
         document.getElementById('login-tab').addEventListener('click', function() {
             showLoginForm();
         });
@@ -51,7 +51,7 @@
         });
 
         // Form submission
-        document.querySelectorAll('button[type="submit"], .form button').forEach(function(button) {
+        document.querySelectorAll('button').forEach(function(button) {
             button.addEventListener('click', function(e) {
                 e.preventDefault();
                 
