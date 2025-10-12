@@ -1,43 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!----======== CSS ======== -->
+    <title>Student Dashboard</title>
+    <!---======== CSS ======== -->
     <link rel="stylesheet" href="style.css">
-    
-    <!----===== Boxicons CSS ===== -->
+    <!---===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
- 
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
-                    <img src="logo.png" alt="">
+                    <img src="/images.png" alt="">
                 </span>
+                <div class="text logo-text">
+                    <span class="name">Student Portal</span>
+                </div>
             </div>
             <i class='bx bx-chevron-right toggle'></i>
         </header>
-        <!-- Header -->
+
         <div class="menu-bar">
             <div class="menu">
-                <li class="search-box ">
+                <li class="search-box">
                     <i class='bx bx-search icon'></i>
                     <input type="text" placeholder="Search...">
                 </li>
                 <ul class="menu-links">
-                <ul class="menu-links">
-                    <li class="nav-link">
+                    <li class="nav-link active">
                         <a href="#">
-                            <i class='bx bx-grid-alt me-2 icon'></i>
+                            <i class='bx bx-grid-alt icon'></i>
                             <span class="text nav-text">Dashboard</span>
                         </a>
                     </li>
-                     <li class="nav-link">
+                    <li class="nav-link">
                         <a href="#">
                             <i class='bx bxs-book icon'></i>
                             <span class="text nav-text">Courses</span>
@@ -45,28 +50,29 @@
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                          <i class='bx bx-calendar icon'></i> 
-                            <span class="text nav-text"> Attendance</span>
+                            <i class='bx bx-calendar icon'></i>
+                            <span class="text nav-text">Attendance</span>
                         </a>
                     </li>
-                   <li class="nav-link">
+                    <li class="nav-link">
                         <a href="#">
-                           <i class='bx bx-credit-card icon'></i>
+                            <i class='bx bx-credit-card icon'></i>
                             <span class="text nav-text">Payment</span>
                         </a>
                     </li>
                     <li class="nav-link">
                         <a href="#">
-                          <i class='bx bxs-file-doc me-1 icon'></i>
+                            <i class='bx bxs-file-doc icon'></i>
                             <span class="text nav-text">Assignment</span>
                         </a>
                     </li>
                 </ul>
             </div>
+
             <div class="bottom-content">
-                <li class="">
-                    <a href="#">
-                        <i class='bx bx-log-out icon' ></i>
+                <li>
+                    <a href="#" id="logout-btn">
+                        <i class='bx bx-log-out icon'></i>
                         <span class="text nav-text">Logout</span>
                     </a>
                 </li>
@@ -80,16 +86,97 @@
                         <span class="switch"></span>
                     </div>
                 </li>
-                
             </div>
         </div>
     </nav>
 
     <section class="home">
-        <div class="text">Dashboard Sidebar</div>
+        <div class="dashboard-content">
+            <!-- Greeting Section -->
+            <div class="greeting-section">
+                <h1 id="greeting-text">Good Morning, Student!</h1>
+                <p class="welcome-text">Welcome to your student dashboard</p>
+            </div>
+
+            <!-- Profile Card -->
+            <div class="profile-card">
+                <div class="avatar" id="avatar-profile">JD</div>
+                <div class="profile-info">
+                    <h2 id="text-student-name"></h2>
+                    <p id="text-course"></p>
+                </div>
+                <button class="btn-edit" id="edit-profile-btn">
+                    <i class='bx bx-edit'></i> Edit Profile
+                </button>
+            </div>
+
+            <!-- Information Grid -->
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3><i class='bx bxs-book'></i>Academic Information</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class='bx bxs-book-open'></i>
+                            <div class="info-item-content">
+                                <p>Course</p>
+                                <p id="text-course-detail"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bxs-user-badge'></i>
+                            <div class="info-item-content">
+                                <p>Teacher</p>
+                                <p id="text-teacher"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bxs-time'></i>
+                            <div class="info-item-content">
+                                <p>Class Timings</p>
+                                <p id="text-timings"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <h3><i class='bx bxs-building'></i>Campus Information</h3>
+                    <div class="info-list">
+                        <div class="info-item">
+                            <i class='bx bxs-map'></i>
+                            <div class="info-item-content">
+                                <p>Campus Location</p>
+                                <p id="text-campus"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bxs-envelope'></i>
+                            <div class="info-item-content">
+                                <p>Email</p>
+                                <p id="text-email"></p>
+                            </div>
+                        </div>
+                        <div class="info-item">
+                            <i class='bx bxs-calendar'></i>
+                            <div class="info-item-content">
+                                <p>Status</p>
+                                <p id="text-status"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-    <!-- Loader -->
-     <span class="loader"><span class="loader-inner"></span></span>
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-firestore.js"></script>
+
+    <script type="module" src="script.js">
+
+    </script>
 </body>
-<script src="script.js"></script>
+
 </html>
